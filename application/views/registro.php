@@ -13,9 +13,12 @@
             <?php foreach($menu as $item): ?>
                 <li><a href="<?= $item['url'] ?>"><?=$item['title'] ?></a></li>
             <?php endforeach; ?>
-
         </ul>
 
+        <?php echo validation_errors();  
+            // !ACA ESTAMOS IMPRIMIENDO TODOS LOS ERRORES
+        ?>
+                
         <?php 
 
         // !VAMOS A ENVIAR LOS DATOS A EL CONTROLADOR REGISTRO/ FUNCION CREATE
@@ -38,5 +41,7 @@
             echo form_submit('submit', 'Enviar Datos');
             echo form_close();
         ?>
+
+        <?= isset($msg) ? $msg : ''?>
     </body>
 </html>
